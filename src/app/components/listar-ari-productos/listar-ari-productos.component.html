@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE ARIPRODUCTOS</span>
+                    <button [disabled]="true" class="btn btn-success float-end" routerLink="/crear-producto">NUEVO</button>
+                    <button class="btn btn-secondary float-start" routerLink="">VOLVER</button>
+                    <table  class="table table-striped mt-3"> <!-- *ngIf="listAriproductos.length > 0"(dentro de <table>) -->
+                        <thead>
+                          <tr>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Ubicacion</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Ambientes</th>
+                            <th scope="col">Dormitorios</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let ariproducto of listAriproductos">
+                              <td scope="col">{{ ariproducto.tipo}}</td>
+                              <td scope="col">{{ ariproducto.ubicacion}}</td>
+                              <td scope="col">{{ ariproducto.precio}}</td>
+                              <td scope="col">{{ ariproducto.ambientes}}</td>
+                              <td scope="col">{{ ariproducto.dormitorios}}</td>
+                            <td>
+                              <i [routerLink]="['/editar-producto', ariproducto._id]" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                              <i class="fas fa-solid fa-trash text-danger"></i><!--  (click)="eliminarProducto(ariproducto._id)"(dentro de <i>) -->
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+<!--                       <h5 style="text-align: start; margin-top: 10px ;" *ngIf="listProductos.length === 0">No hay productos para mostrar</h5>
+ -->                </div>
+            </div>
+        </div>
+    </div>
+  </div>
